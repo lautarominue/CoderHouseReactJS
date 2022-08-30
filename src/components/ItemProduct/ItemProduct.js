@@ -1,12 +1,16 @@
-import './ItemProduct.css'
 
-const ItemProduct = ({title, price, image}) => {
+import './ItemProduct.css'
+import ItemCount from '../ItemCount/ItemCount';
+
+
+const ItemProduct = ({data, action}) => {
+    const {title, image, price, stock} = data
+
     return(
         <div className='cardproduct'>
             <img className="imgproduct" src={`/assets/${image}`} alt="" />
             <p>{title}</p>
-            <span>$ {price}</span>
-            <button>Comprar</button>
+            <ItemCount stock={stock}/>
         </div>
     )
 }

@@ -9,8 +9,6 @@ function App() {
       <header className="App-header">
         <h1>Ecommerce</h1>
         <Itemcontainer section="Productos A"/>
-        <Itemcontainer section="Productos B"/>
-        <Itemcontainer section="Productos C"/>
         
       </header>
     </div>
