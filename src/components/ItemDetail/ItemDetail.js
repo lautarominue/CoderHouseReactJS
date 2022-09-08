@@ -7,7 +7,7 @@ const ItemDetail = ({data}) => {
     return(
         <article className="productDetail">
             <div className="itemContainer">
-            <img src={`../assets/${image}`} />
+            <img src={`/assets/${image}`} />
             <h2 className="titleDetail">{title}</h2>
             <p className="infoDetail">{descrip}</p>
             <p className="infoDetail">${price}</p>

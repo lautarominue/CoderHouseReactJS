@@ -1,17 +1,18 @@
-
 import './ItemProduct.css'
-import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 
 const ItemProduct = ({data, action}) => {
-    const {title, image, price, stock} = data
+    const {title, image, price, stock, id} = data
+    
 
     return(
-        <div className='cardproduct'>
-            <img className="imgproduct" src={`/assets/${image}`} alt="" />
-            <p>{title}</p>
-            <ItemCount stock={stock}/>
-        </div>
+        <Link to={`/productos/${id}`}>
+            <div className='cardproduct'>
+                <img className="imgproduct" src={`/assets/${image}`} alt="" />
+                <p>{title}</p>
+            </div>
+        </Link>
     )
 }
 

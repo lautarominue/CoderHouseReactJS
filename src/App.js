@@ -2,19 +2,20 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Itemcontainer from './components/ItemContainer/ItemContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <header className="App-header">
-        <h1>Ecommerce</h1>
-        <Itemcontainer section="Productos A"/>
-        <ItemDetailContainer />
-
-        
-      </header>
-    </div>
+    <BrowserRouter >
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Itemcontainer section="Productos A"/>}/>
+          <Route path="/contacto" element={<h1>Contacto</h1>}/>
+          <Route path="/productos/:id" element={<ItemDetailContainer />}/>
+          <Route path="*" element={<h2>ERROR 404 - pagina no encontrada</h2>} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
