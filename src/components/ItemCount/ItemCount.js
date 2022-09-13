@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './ItemCount.css'
 
-const ItemCount = ({stock, data}) => {
+const ItemCount = ({stock, data, setQuantitySelected}) => {
     const [contador, setContador] = useState(1);
 
     const addNumber = () => {
@@ -21,7 +21,7 @@ const ItemCount = ({stock, data}) => {
             console.log("Cantidad")
 
         } 
-        setContador(0)
+        setQuantitySelected(contador)
     }
 
 
