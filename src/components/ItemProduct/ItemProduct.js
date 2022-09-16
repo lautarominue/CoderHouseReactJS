@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ItemProduct = ({data, action}) => {
     const {title, image, price, stock, id} = data
+
     
 
     return(

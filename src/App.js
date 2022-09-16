@@ -4,11 +4,13 @@ import Itemcontainer from './components/ItemContainer/ItemContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Checkout from './components/pages/Checkout';
+import CartProvider from './components/context/CartContext';
 
 
 function App() {
   return (
-    <BrowserRouter >
+    <CartProvider >
+      <BrowserRouter >
         <NavBar />
         <Routes>
           <Route path="/" element={<Itemcontainer section="Productos A"/>}/>
@@ -17,7 +19,8 @@ function App() {
           <Route path="/cart" element={<Checkout />} />
           <Route path="*" element={<h2>ERROR 404 - pagina no encontrada</h2>} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
