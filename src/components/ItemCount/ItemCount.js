@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 
 const ItemCount = ({stock, data, setQuantitySelected}) => {
     const {addProductToCart} = useContext(CartContext)
-    const [contador, setContador] = useState(1);
+    const [contador, setContador] = useState(0);
 
     const addNumber = () => {
         if(contador<stock){
@@ -20,7 +20,7 @@ const ItemCount = ({stock, data, setQuantitySelected}) => {
 
     const onAdd = () => {
         for (let index =0; index < contador; index++) {
-            console.log("Cantidad", data)
+            data.cant = contador;
             addProductToCart(data)
 
         } 

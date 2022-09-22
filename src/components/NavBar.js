@@ -1,8 +1,18 @@
 import './NavBar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './context/CartContext';
 
 const NavBar = () => {
+    const {cartProducts} = useContext(CartContext)
+    const totalNumber = () => {
+        let count = 0
+        cartProducts.forEach(element => {
+            count = count + element.cant
+        });
+        return count
+    };
     return(
         <nav>
             <div>
@@ -19,7 +29,14 @@ const NavBar = () => {
                     <Link to="/contacto"> <ul>Contacto</ul></Link>
                 </div>
             </div>
-            <CartWidget />
+            <div>
+                <div>
+                    <span>{totalNumber()}</span>
+                </div>
+                <div>
+                    <CartWidget />
+                </div>
+            </div>
         </nav>
     )
 }
