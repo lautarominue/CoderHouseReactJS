@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import products from '../../utils/product.mock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+// firebase
+import db from '../../firebaseConfig'
+import { doc, getDoc, getDocs } from "firebase/firestore"
+import { async } from '@firebase/util'
 
 
 
@@ -10,12 +14,24 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
     
     useEffect( () => {
-        products.some((product) => {
-            if(product.id == id) {
-                setProductData (product)
-            }
+        // products.some((product) => {
+        //     if(product.id == id) {
+        //         setProductData (product)
+        //     }
+        // })
+        getProducts()
+        .then((res) => {
+            setProductData(res)
         })
-    })
+    }, [id])
+
+    // const filterById = () => {
+    //     products.some( (product) => {
+    //         if(product.id == id) {
+    //             setProductData(product)
+    //         }
+    //     })
+    // }
 
     // const [listProducts, setListProducts] = useState([])
 
@@ -39,6 +55,17 @@ const ItemDetailContainer = () => {
         
     //         })   
     // }, [])
+
+    const getProducts = async () => {
+        const docRef = doc(db, 'productos', id)
+        const docSnapshot = await getDoc(docRef)
+        console.log('docSnapshot',docSnapshot)
+
+        let product = docSnapshot.data()
+        product.id = docSnapshot.id
+        console.log('data con id', product)
+        return product
+    }
     
 
     return(
