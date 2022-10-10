@@ -40,6 +40,9 @@ const NavBar = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Link to="/cart"> <ul>Cart</ul></Link>
                     </Typography>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Link to="/contacto"> <ul>Contacto</ul></Link>
+                    </Typography>
                     <Button onClick={handleClick} color="inherit">
                         <Badge badgeContent={totalNumber()} color="secondary">
                             <ShoppingCartIcon />

@@ -2,6 +2,7 @@ import { Button } from "@mui/material"
 import { CartContext } from "../context/CartContext"
 import { useContext } from "react"
 import "./PriceTotal.css"
+import { Link } from 'react-router-dom';
 
 const PriceTotal = () => {
     const { cartProducts } = useContext(CartContext)
@@ -15,12 +16,14 @@ const PriceTotal = () => {
     totalPrice()
     return (
         <div className="priceTotal">
+            <Link to="/contacto">
                 <Button variant="contained" color="secondary">
                     Total
                     <span >
                         {":  $" + totalPrice()}
                     </span>
                 </Button>
+            </Link>
         </div>
     )
 }
