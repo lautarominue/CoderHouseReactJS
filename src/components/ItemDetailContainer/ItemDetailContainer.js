@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import products from '../../utils/product.mock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 // firebase
@@ -14,56 +13,17 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
     
     useEffect( () => {
-        // products.some((product) => {
-        //     if(product.id == id) {
-        //         setProductData (product)
-        //     }
-        // })
         getProducts()
         .then((res) => {
             setProductData(res)
         })
     }, [id])
 
-    // const filterById = () => {
-    //     products.some( (product) => {
-    //         if(product.id == id) {
-    //             setProductData(product)
-    //         }
-    //     })
-    // }
-
-    // const [listProducts, setListProducts] = useState([])
-
-    // const getProducts = new Promise ( ( resolve, reject ) => {
-    //     setTimeout( () => {
-    //         resolve (products.find(item => item.id === 2 ))
-    //     }, 2000)
-        
-    // } )
-
-    // useEffect(() => {
-    //     getProducts
-    //         .then((res) => {
-    //             setListProducts(res)
-    //         })
-    //         .catch((error) => {
-    //             console.log("error")
-                
-    //         })
-    //         .finally( () => {
-        
-    //         })   
-    // }, [])
-
     const getProducts = async () => {
         const docRef = doc(db, 'productos', id)
         const docSnapshot = await getDoc(docRef)
-        console.log('docSnapshot',docSnapshot)
-
         let product = docSnapshot.data()
         product.id = docSnapshot.id
-        console.log('data con id', product)
         return product
     }
     

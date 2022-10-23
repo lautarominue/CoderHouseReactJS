@@ -15,7 +15,6 @@ import { useContext } from 'react';
 const ListCartWidget = ({ data }) => {
     const { price, image, title, descrip, cant, id } = data
     const { removeProduct } = useContext(CartContext)
-    console.log({ data })
     return (
         <>
             <List>

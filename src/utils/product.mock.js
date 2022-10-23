@@ -16,6 +16,15 @@ const products = [
         descrip: "Caja de la operacion phoenix, con la skin emblematica Asiimov",
         stock: 5
 
+    },
+    {
+        id: 3,
+        title: "Danger Case",
+        price: 90,
+        image: 'dangercase.png',
+        descrip: "Skins de la season 2019",
+        stock: 9
+
     }
 ]
 

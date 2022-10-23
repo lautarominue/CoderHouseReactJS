@@ -19,6 +19,7 @@ function App() {
           <Route path="/productos/:id" element={<ItemDetailContainer />}/>
           <Route path="/cart" element={<Checkout />} />
           <Route path="*" element={<h2>ERROR 404 - pagina no encontrada</h2>} />
+          <Route path='/category/:category' element={<Itemcontainer section="Productos A"/>} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

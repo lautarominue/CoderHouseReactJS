@@ -1,7 +1,5 @@
 import './NavBar.css'
 
-
-
 const CartWidget = () => {
     
     return(
